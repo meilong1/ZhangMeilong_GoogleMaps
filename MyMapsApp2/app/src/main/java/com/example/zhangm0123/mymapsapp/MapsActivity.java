@@ -124,10 +124,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
                 mMap.animateCamera(update);
             } else {
-                Log.d("MyMaps App", "dropAMarker:   location is null");
+                Log.d("MyMaps App", "dropAMarker: location is null");
             }
         } catch (SecurityException e){
-            Log.d("MyMapsApp", "dropAMarker:    security exception");
+            Log.d("MyMapsApp", "dropAMarker: security exception");
         }
     }
 
@@ -166,11 +166,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LocationManager service = (LocationManager) getSystemService(LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = service.getBestProvider(criteria, false);
-
-
         Log.d("MyMapsApp","onSearch: location = " + location);
         Log.d("MyMapsApp","onSearch: provider " + provider);
-
         LatLng userLocation = null;
 
         //Check the last known location, need to specifically list the provider (network or gps)
@@ -206,6 +203,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("MyMapsApp","onSearch: location field is populated");
             Geocoder geocoder = new Geocoder(this, Locale.US);
             Log.d("MyMapsApp","onSearch: created Geocoder");
+
             try{
                 //Get a List of the addresses
                 addressList = geocoder.getFromLocationName(location, 100,
@@ -244,16 +242,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //Get GPS status, isProviderEnabled returns true if user has enabled gps
             isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
             if (isGPSEnabled){
-                Log.d("MyMapsApp", "getLocation:    GPS is enabled");
+                Log.d("MyMapsApp", "getLocation: GPS is enabled");
             }
 
             isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
             if (isNetworkEnabled){
-                Log.d("MyMapsApp", "getLocation:    Network is enabled");
+                Log.d("MyMapsApp", "getLocation: Network is enabled");
             }
 
             if (!isGPSEnabled && !isNetworkEnabled){
-                Log.d("MyMapsApp", "getLocation:    no provider enabled");
+                Log.d("MyMapsApp", "getLocation: no provider enabled");
             } else {
                 if (isNetworkEnabled){
                     //Request location updates
@@ -270,7 +268,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         } catch (Exception e) {
-            Log.d("MyMapsApp", "getLocation:    Exception in getLocation");
+            Log.d("MyMapsApp", "getLocation: Exception in getLocation");
             e.printStackTrace();
         }
     }
@@ -296,7 +294,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
-            Log.d("MyMapsApp", "locationListenerNetwork:    status change");
+            Log.d("MyMapsApp", "locationListenerNetwork: status change");
             Toast.makeText(MapsActivity.this, "status change", Toast.LENGTH_LONG).show();
         }
 
@@ -321,8 +319,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 locationManager.removeUpdates(locationListenerNetwork);
                 gotMyLocationOneTime = true;
             }
-
-
         }
 
         @Override
@@ -361,8 +357,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             MIN_DISTANCE_CHANGE_FOR_UPDATES, locationListenerNetwork);
                     break;
                 default:
-
-
             }
         }
 
@@ -376,5 +370,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         }
     };
-
 }
