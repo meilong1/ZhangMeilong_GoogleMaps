@@ -1,5 +1,4 @@
 package com.example.zhangm0123.mymapsapp;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -16,7 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -25,15 +23,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
     private GoogleMap mMap;
-
     private EditText locationSearch;
     private Location myLocation;
     private LocationManager locationManager;
@@ -41,8 +36,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private boolean isNetworkEnabled = false;
     private boolean gotMyLocationOneTime;
     private boolean notTrackingMyLocation = true;
-
-
     private static final long MIN_TIME_BW_UPDATES = 1000 * 10;
     private static final float MIN_DISTANCE_CHANGE_FOR_UPDATES = 0.0f;
     private static final int MY_LOC_ZOOM_FACTOR = 17;
