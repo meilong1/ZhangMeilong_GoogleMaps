@@ -16,7 +16,6 @@
         android:weightSum="1">
 
 
-
         <Button
             android:id="@+id/buttonView"
             style="?android:attr/buttonStyleSmall"
@@ -25,7 +24,6 @@
             android:layout_gravity="right"
             android:onClick="changeView"
             android:text="View">
-
         </Button>
 
         <EditText
@@ -35,7 +33,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textPersonName"
-            tools:text="Location" />
+            tools:text="Destination" />
 
         <Button
             android:id="@+id/buttonSearch"
@@ -63,7 +61,6 @@
             android:layout_weight="1"
             android:onClick="clear"
             android:text="Clear" />
-
 
     </LinearLayout>
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
